@@ -4,22 +4,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.beautyproducts.R
-import com.example.beautyproducts.modelproduct
-import kotlinx.android.synthetic.main.activity_home.*
+import com.example.beautyproducts.databinding.ActivityMainBinding
 
-class HomeActivity : AppCompatActivity() {
 
+class MainActivity : AppCompatActivity() {
+private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        val view =binding.root
+        setContentView(view)
 
-
-        navigation.setOnNavigationItemReselectedListener { item->
+        binding.navigation.setOnNavigationItemReselectedListener { item->
             if (item.itemId==R.id.home_navigation){
                 pushFragment(HomeFragment())}
 
             }
-        navigation.selectedItemId=R.id.home_navigation
+        binding.navigation.selectedItemId=R.id.home_navigation
     }
 
 

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/dark_orange"
+    android:paddingTop="15dp"
+    android:paddingStart="20dp"
+    android:paddingLeft="20dp">
+    
+    <ImageView
+        android:id="@+id/back_pic"
+        android:layout_width="110dp"
+        android:layout_height="132dp"
+        android:background="@drawable/select_item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="132dp"
+        app:layout_constraintStart_toStartOf="@id/back_pic"
+        app:layout_constraintEnd_toEndOf="@id/back_pic"
+        app:layout_constraintTop_toTopOf="@id/back_pic"
+        app:layout_constraintTop_toBottomOf="@id/back_pic"
+        tools:src="@drawable/one"
+        />
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/back_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/number"
+        app:layout_constraintTop_toTopOf="@id/number"
+        app:layout_constraintBottom_toBottomOf="@id/number"
+         />
+
+    <TextView
+        android:id="@+id/product_name_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hand Cream"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/by"
+        app:layout_constraintTop_toTopOf="@id/by"
+        app:layout_constraintBottom_toBottomOf="@id/by"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp" />
+
+
+    <TextView
+        android:id="@+id/price_product_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$12.56"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/number"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/size_product_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="300 Ml"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/price_product_selected"
+        app:layout_constraintTop_toTopOf="@id/price_product_selected"
+        app:layout_constraintBottom_toBottomOf="@+id/price_product_selected"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="3dp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

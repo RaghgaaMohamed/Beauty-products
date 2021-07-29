@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".cart.CartFragment"
+    android:background="@color/light_orange">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/contiue_btn"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/back_thirdfragment">
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="45dp"
+            android:layout_height="27dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="110dp"
+            android:text="Total"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="140dp" />
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@+id/total"
+            app:layout_constraintTop_toTopOf="@+id/total"
+            tools:text="$12.56"
+            app:layout_constraintBottom_toBottomOf="@+id/total"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_marginLeft="12dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/total"
+            app:layout_constraintBottom_toTopOf="@+id/total1"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            tools:listitem="@layout/cart_item"
+
+            />
+
+
+
+
+        
+        <TextView
+            android:id="@+id/tax"
+            android:layout_width="32dp"
+            android:layout_height="27dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="110dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginBottom="40dp"
+            android:text="Tax"
+            android:layout_marginLeft="110dp" />
+
+
+        <TextView
+            android:id="@+id/tax_price"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintStart_toEndOf="@+id/tax"
+            app:layout_constraintTop_toTopOf="@+id/tax"
+            tools:text="$00"
+            app:layout_constraintBottom_toBottomOf="@+id/tax"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_marginLeft="12dp" />
+
+        <TextView
+            android:id="@+id/total1"
+            android:layout_width="45dp"
+            android:layout_height="27dp"
+            app:layout_constraintBottom_toTopOf="@+id/tax"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="110dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="Total"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="110dp" />
+
+
+        <TextView
+            android:id="@+id/total_price1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@+id/total1"
+            app:layout_constraintTop_toTopOf="@+id/total1"
+            tools:text="$12.56"
+            app:layout_constraintBottom_toBottomOf="@+id/total1"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_marginLeft="12dp" />
+        
+        
+        
+        
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/contiue_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:background="@color/light_orange"
+        android:text="Continue"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="30dp"
+/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
