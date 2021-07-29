@@ -1,10 +1,11 @@
-package com.example.beautyproducts
+package com.example.beautyproducts.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.beautyproducts.R
 
 class CategoryAdapter(private var images : List<Int>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
@@ -18,7 +19,7 @@ class CategoryAdapter(private var images : List<Int>) : RecyclerView.Adapter<Cat
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_rv_categories , parent , false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_rv_categories, parent , false)
         return ViewHolder(v)
     }
 
