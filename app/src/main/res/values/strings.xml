@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Beauty products</string>
     <string name="search_products">Search Products</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description">Formulated with pure fermented green tea extract in lieu of distilled water, TonyMoly Chok Chok Green Tea Watery Cream provides intense hydration without being sticky or too heavy on skin.</string>
 </resources>
