@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ProductViewModel(application : Application) : AndroidViewModel(application) {
-     private val readAllProducts : LiveData<List<Product>>
+     val readAllProducts : LiveData<List<Product>>
      private val repository : ProductRepository
      init {
          val productDao = ProductDatabase.getDatabase(application).productDao()

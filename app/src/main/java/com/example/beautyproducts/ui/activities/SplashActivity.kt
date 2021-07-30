@@ -1,3 +1,6 @@
+
+
+
 package com.example.beautyproducts.ui.activities
 
 import android.content.Intent

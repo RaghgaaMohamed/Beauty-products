@@ -13,17 +13,14 @@ import com.example.beautyproducts.adapters.ProductsAdapter
 import com.example.beautyproducts.R
 import com.example.beautyproducts.databinding.FragmentHome1Binding
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment()  {
     private var _binding: FragmentHome1Binding? = null
-    private var imagesList = mutableListOf<Int>()
-    lateinit var productsAdapter: ProductsAdapter
-    var models = ArrayList<ModelProduct>()
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private var imagesList = mutableListOf<Int>()
+    lateinit var productsAdapter: ProductsAdapter
+    val tab_items = ArrayList<String>()
+    var models = ArrayList<ModelProduct>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,25 +28,23 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHome1Binding.inflate(layoutInflater)
         val view = binding.root
+        setUpViews()
 
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        postToList()
-
-        binding.rvCategories.layoutManager = LinearLayoutManager(context , LinearLayoutManager.HORIZONTAL , false)
-        binding.rvCategories.adapter = CategoryAdapter(imagesList)
-
-        setUpViews()
-
-    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
     private fun postToList() {
+
+        tab_items.add("Skin")
+        tab_items.add("Hair")
+        tab_items.add("Personal Care")
+        tab_items.add("Other")
+
         imagesList.add(R.drawable.flat1)
         imagesList.add(R.drawable.flat2)
         imagesList.add(R.drawable.flat3)
@@ -57,18 +52,25 @@ class HomeFragment : Fragment() {
         imagesList.add(R.drawable.flat5)
         imagesList.add(R.drawable.flat6)
 
+        models.add(ModelProduct("Gentle Skin Cleanser", "12.29", "300", R.drawable.a))
+        models.add(ModelProduct("Eye Cream", "10.12", "300", R.drawable.b))
+        models.add(ModelProduct("Hand Cream", "12.29", "300", R.drawable.c))
+        models.add(ModelProduct("Bath Salts", "11.29", "150", R.drawable.d))
     }
 
-
     private fun setUpViews() {
+        postToList()
+        binding.productsRecyclerview.adapter = ProductsAdapter(models)
+        binding.rvCategories.adapter = CategoryAdapter(imagesList)
 
-        models.add(ModelProduct("Gentle Skin Cleanser","$12.29","300 Ml", R.drawable.a))
-        models.add(ModelProduct("Eye Cream","$10.12","300 Ml", R.drawable.b))
-        models.add(ModelProduct("Hand Cream","$12.29","300 Ml", R.drawable.c))
-        models.add(ModelProduct("Bath Salts","$11.29","150 Ml", R.drawable.d))
-        Log.e("model id",models.size.toString())
-        productsAdapter= ProductsAdapter(models)
-       binding.productsRecyclerview.adapter=productsAdapter
+        binding.rvCategories.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvCategories.adapter = CategoryAdapter(imagesList)
+
+        for (i in 0..tab_items.size - 1) {
+            val tab = binding.tabLayout.newTab()
+            tab.setText(tab_items.get(i))
+            binding.tabLayout.addTab(tab)
+        }
 
     }
 

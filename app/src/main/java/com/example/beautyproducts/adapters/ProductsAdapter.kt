@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beautyproducts.R
+import com.example.beautyproducts.data.db.entities.Product
 
 class ProductsAdapter(var modelList:List<ModelProduct>):RecyclerView.Adapter<ProductsAdapter.ViewHolder>(){
 
@@ -30,14 +31,11 @@ class ProductsAdapter(var modelList:List<ModelProduct>):RecyclerView.Adapter<Pro
     }
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val name: TextView=itemView.findViewById(R.id.name_product)
-        val price:TextView=itemView.findViewById(R.id.price_product)
-        val size :TextView=itemView.findViewById(R.id.size_product)
-        val image:ImageView=itemView.findViewById(R.id.image_product)
-         init {
-             itemView.setOnClickListener { v : View->
+        val name: TextView=itemView.findViewById(R.id.tv_name)
+        val price:TextView=itemView.findViewById(R.id.tv_price)
+        val size :TextView=itemView.findViewById(R.id.tv_size)
+        val image:ImageView=itemView.findViewById(R.id.iv_product)
 
-             }
-         }
+
     }
 }
