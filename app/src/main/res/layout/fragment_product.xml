@@ -32,13 +32,20 @@
                     android:id="@+id/switch_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textOn="150Ml"
+                    android:textOff="300Ml"
+                    app:showText="true"
+                    style="@style/SearchViewStyle"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track"
                     app:layout_constraintStart_toEndOf="@+id/iv_product"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/iv_product"
-                    android:layout_width="250dp"
+                    android:layout_width="200dp"
                     android:layout_height="320dp"
                     android:src="@drawable/shampoo"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -64,6 +71,7 @@
                     android:layout_gravity="center"
                     android:text="Gentle Skin Cleanser"
                     android:textColor="@color/white"
+                    android:textStyle="bold"
                     android:textSize="30sp" />
 
                 <LinearLayout
