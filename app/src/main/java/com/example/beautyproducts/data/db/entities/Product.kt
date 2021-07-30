@@ -8,7 +8,7 @@ data class Product(
     @ColumnInfo(name = "product_name")
     var name : String ,
     @ColumnInfo(name = "product_price")
-    var price : Int ,
+    var price : Double ,
     @ColumnInfo(name = "product_size")
     var size : Int ,
     @ColumnInfo(name = "product_picture")
