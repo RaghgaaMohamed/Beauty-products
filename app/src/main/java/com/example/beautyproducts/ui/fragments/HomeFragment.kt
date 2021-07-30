@@ -18,8 +18,6 @@ class HomeFragment : Fragment() {
     private var imagesList = mutableListOf<Int>()
     lateinit var productsAdapter: ProductsAdapter
     var models = ArrayList<ModelProduct>()
-    // This property is only valid between onCreateView and
-// onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +28,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHome1Binding.inflate(layoutInflater)
         val view = binding.root
 
@@ -47,7 +45,10 @@ class HomeFragment : Fragment() {
         setUpViews()
 
     }
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
     private fun postToList() {
         imagesList.add(R.drawable.flat1)
         imagesList.add(R.drawable.flat2)

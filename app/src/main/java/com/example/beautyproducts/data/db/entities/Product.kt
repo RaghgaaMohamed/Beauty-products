@@ -12,8 +12,10 @@ data class Product(
     @ColumnInfo(name = "product_size")
     var size : Int ,
     @ColumnInfo(name = "product_picture")
-    var picture : Int
-){
+    var picture : Int ,
+    @ColumnInfo(name = "product_size")
+    var number : Int
+    ){
     @PrimaryKey(autoGenerate = true )
     var id :Int ? = null
 }
