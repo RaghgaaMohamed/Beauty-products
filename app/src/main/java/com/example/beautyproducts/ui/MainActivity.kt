@@ -1,12 +1,9 @@
-package com.example.beautyproducts
+package com.example.beautyproducts.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.beautyproducts.R
 import com.example.beautyproducts.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,11 +17,11 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.navigation.setOnNavigationItemReselectedListener { item->
-            if (item.itemId==R.id.home_navigation){
+            if (item.itemId== R.id.home_navigation){
                 pushFragment(HomeFragment())}
 
         }
-        binding.navigation.selectedItemId=R.id.home_navigation
+        binding.navigation.selectedItemId= R.id.home_navigation
     }
 
 

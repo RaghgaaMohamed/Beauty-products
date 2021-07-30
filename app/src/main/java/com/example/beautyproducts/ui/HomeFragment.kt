@@ -1,4 +1,4 @@
-package com.example.beautyproducts
+package com.example.beautyproducts.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.beautyproducts.adapters.CategoryAdapter
+import com.example.beautyproducts.adapters.ModelProduct
+import com.example.beautyproducts.adapters.ProductsAdapter
+import com.example.beautyproducts.R
 import com.example.beautyproducts.databinding.FragmentHome1Binding
 
 class HomeFragment : Fragment() {
@@ -57,10 +61,10 @@ class HomeFragment : Fragment() {
 
     private fun setUpViews() {
 
-        models.add(ModelProduct("Gentle Skin Cleanser","$12.29","300 Ml",R.drawable.a))
-        models.add(ModelProduct("Eye Cream","$10.12","300 Ml",R.drawable.b))
-        models.add(ModelProduct("Hand Cream","$12.29","300 Ml",R.drawable.c))
-        models.add(ModelProduct("Bath Salts","$11.29","150 Ml",R.drawable.d))
+        models.add(ModelProduct("Gentle Skin Cleanser","$12.29","300 Ml", R.drawable.a))
+        models.add(ModelProduct("Eye Cream","$10.12","300 Ml", R.drawable.b))
+        models.add(ModelProduct("Hand Cream","$12.29","300 Ml", R.drawable.c))
+        models.add(ModelProduct("Bath Salts","$11.29","150 Ml", R.drawable.d))
         Log.e("model id",models.size.toString())
         productsAdapter= ProductsAdapter(models)
        binding.productsRecyclerview.adapter=productsAdapter

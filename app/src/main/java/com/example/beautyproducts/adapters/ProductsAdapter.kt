@@ -1,4 +1,4 @@
-package com.example.beautyproducts
+package com.example.beautyproducts.adapters
 
 
 import android.view.LayoutInflater

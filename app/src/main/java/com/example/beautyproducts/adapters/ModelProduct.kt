@@ -1,4 +1,4 @@
-package com.example.beautyproducts
+package com.example.beautyproducts.adapters
 
 data class ModelProduct( val name:String,
                          val price:String,

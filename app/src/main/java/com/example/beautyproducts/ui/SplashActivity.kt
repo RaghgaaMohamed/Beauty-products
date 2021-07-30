@@ -1,10 +1,11 @@
-package com.example.beautyproducts
+package com.example.beautyproducts.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.AnimationUtils
+import com.example.beautyproducts.R
 import com.example.beautyproducts.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
