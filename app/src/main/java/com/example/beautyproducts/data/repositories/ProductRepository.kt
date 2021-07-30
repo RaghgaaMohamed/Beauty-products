@@ -1,4 +1,4 @@
-package com.example.beautyproducts.data
+package com.example.beautyproducts.data.repositories
 
 import androidx.lifecycle.LiveData
 import com.example.beautyproducts.data.db.ProductDao

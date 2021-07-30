@@ -1,4 +1,4 @@
-package com.example.beautyproducts.ui
+package com.example.beautyproducts.ui.fragments
 
 import android.os.Bundle
 import android.util.Log

@@ -1,4 +1,4 @@
-package com.example.beautyproducts.ui
+package com.example.beautyproducts.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

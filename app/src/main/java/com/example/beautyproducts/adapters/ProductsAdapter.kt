@@ -29,11 +29,15 @@ class ProductsAdapter(var modelList:List<ModelProduct>):RecyclerView.Adapter<Pro
         return modelList.size
     }
 
-    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val name: TextView=itemView.findViewById(R.id.name_product)
         val price:TextView=itemView.findViewById(R.id.price_product)
         val size :TextView=itemView.findViewById(R.id.size_product)
         val image:ImageView=itemView.findViewById(R.id.image_product)
+         init {
+             itemView.setOnClickListener { v : View->
 
+             }
+         }
     }
 }
