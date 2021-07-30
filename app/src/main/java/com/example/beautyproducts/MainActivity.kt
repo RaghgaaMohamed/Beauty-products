@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.beautyproducts.databinding.ActivityMainBinding
 
@@ -16,20 +17,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        postToList()
 
-        binding.rvCategories.layoutManager = LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL , false)
-        binding.rvCategories.adapter = CategoryAdapter(imagesList)
+
+        binding.navigation.setOnNavigationItemReselectedListener { item->
+            if (item.itemId==R.id.home_navigation){
+                pushFragment(HomeFragment())}
+
+        }
+        binding.navigation.selectedItemId=R.id.home_navigation
     }
 
-    private fun postToList() {
-        imagesList.add(R.drawable.flat1)
-        imagesList.add(R.drawable.flat2)
-        imagesList.add(R.drawable.flat3)
-        imagesList.add(R.drawable.flat4)
-        imagesList.add(R.drawable.flat5)
-        imagesList.add(R.drawable.flat6)
 
-
+    fun pushFragment (fragment : Fragment){
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_containar,fragment).commit()
     }
 }
