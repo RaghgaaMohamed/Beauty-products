@@ -5,16 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import com.example.beautyproducts.R
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.beautyproducts.adapters.ModelProduct
 import com.example.beautyproducts.data.db.entities.Product
-import com.example.beautyproducts.databinding.FragmentHome1Binding
+import com.example.beautyproducts.data.repositories.ProductRepository
 import com.example.beautyproducts.databinding.FragmentProductBinding
+import com.example.beautyproducts.data.db.ProductDatabase as ProductDatabase
 
 class ProductFragment : Fragment() {
     private var _binding: FragmentProductBinding? = null
     private val binding get() = _binding!!
-    private lateinit var mProductViewModel: ProductViewModel
+    var modelProduct : ModelProduct ?=null
+    private lateinit var  mProductViewModel : ProductViewModel
+//    private val args : ProductFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +33,30 @@ class ProductFragment : Fragment() {
         _binding = FragmentProductBinding.inflate(layoutInflater)
         val view = binding.root
 
-        mProductViewModel = ViewModelProvider(this ).get(ProductViewModel::class.java)
+        //db
+        val mDb = ProductDatabase(requireContext())
+        //repository
+        val mRepository = ProductRepository(mDb)
+        //factory
+        val factory = ProductViewModelFactory(mRepository)
+        //view model object
+        mProductViewModel = ViewModelProviders.of(this , factory).get(ProductViewModel::class.java)
 
+        //init product
+//        modelProduct = args.model
+        binding.tvName.text = modelProduct?.name
+        binding.tvSize.setText(modelProduct?.size)
+        binding.tvPrice.setText(modelProduct?.price)
+        binding.ivProduct.setImageResource(modelProduct?.images?:0)
+
+
+        // set items on clickListener
         binding.tvPlus.setOnClickListener {
             var number = binding.tvNumber.text.toString().toInt()
             number ++
             binding.tvNumber.text = number.toString()
         }
+
         binding.tvMinus.setOnClickListener {
             var number = binding.tvNumber.text.toString().toInt()
             number --
@@ -44,20 +66,25 @@ class ProductFragment : Fragment() {
         }
 
         binding.tvAddToBag.setOnClickListener{
-            insertDataToDataBase()
+//            insertDataToDataBase()
+            val action = ProductFragmentDirections.actionProductFragmentToCartFragment()
+            findNavController().navigate(action)
         }
+
         return view
     }
 
+    // insert to database from product fragment
     private fun insertDataToDataBase() {
+        //get data
         val name = binding.tvName.text.toString()
         val price = binding.tvPrice.text.toString().toDouble()
         val size = binding.tvSize.text.toString().toInt()
-        val description = binding.tvDescription.text.toString()
         val number = binding.tvNumber.toString().toInt()
         val picture = binding.ivProduct.toString().toInt()
-
+        //insert data
         val product = Product(name , price , size , picture , number)
+        //access to fun add product from viewModel
         mProductViewModel.addProduct(product)
     }
 

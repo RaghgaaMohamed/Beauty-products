@@ -11,11 +11,7 @@ class CategoryAdapter(private var images : List<Int>) : RecyclerView.Adapter<Cat
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val itemPicture : ImageView = itemView.findViewById(R.id.iv_item)
-        init {
-            itemView.setOnClickListener { v : View ->
 
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -1,19 +1,21 @@
 package com.example.beautyproducts.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.beautyproducts.R
 import com.example.beautyproducts.adapters.CategoryAdapter
 import com.example.beautyproducts.adapters.ModelProduct
+import com.example.beautyproducts.adapters.OnItemClickListener
 import com.example.beautyproducts.adapters.ProductsAdapter
-import com.example.beautyproducts.R
 import com.example.beautyproducts.databinding.FragmentHome1Binding
 
-class HomeFragment : Fragment()  {
+class HomeFragment : Fragment() , OnItemClickListener {
     private var _binding: FragmentHome1Binding? = null
     private val binding get() = _binding!!
 
@@ -60,7 +62,7 @@ class HomeFragment : Fragment()  {
 
     private fun setUpViews() {
         postToList()
-        binding.productsRecyclerview.adapter = ProductsAdapter(models)
+        binding.productsRecyclerview.adapter = ProductsAdapter(models , this)
         binding.rvCategories.adapter = CategoryAdapter(imagesList)
 
         binding.rvCategories.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -72,6 +74,14 @@ class HomeFragment : Fragment()  {
             binding.tabLayout.addTab(tab)
         }
 
+        //adapter
+        productsAdapter = ProductsAdapter(models ,this )
     }
 
+    override fun onItemClick(position: Int, modelProduct: ModelProduct) {
+        Toast.makeText(context , " hi" , Toast.LENGTH_LONG).show()
+        val action = HomeFragmentDirections.actionHomeFragmentToProductFragment()
+        findNavController().navigate(action)
+
+    }
 }

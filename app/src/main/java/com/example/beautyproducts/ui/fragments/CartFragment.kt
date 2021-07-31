@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.beautyproducts.R
 import com.example.beautyproducts.adapters.CartAdapter
@@ -38,6 +39,12 @@ class CartFragment : Fragment() {
         productViewModel.readAllProducts.observe(viewLifecycleOwner , Observer { product ->
             adapter.setData(product)
         })
+
+        binding.contiueBtn.setOnClickListener {
+            val action = CartFragmentDirections.actionCartFragmentToHomeFragment()
+            findNavController().navigate(action)
+
+        }
         return view
     }
 

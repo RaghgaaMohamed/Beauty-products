@@ -8,26 +8,23 @@ import com.example.beautyproducts.data.db.entities.Product
 
 @Database(entities = [Product::class] , version = 1 , exportSchema = false)
 abstract class ProductDatabase : RoomDatabase(){
-    abstract fun productDao() : ProductDao
-
-    companion object{
+    abstract fun getProductDao(): ProductDao
+    companion object {
         @Volatile
-        private var INSTANCE : ProductDatabase?=null
+        private var instance : ProductDatabase? = null
+        private var Lock = Any()
+        //invoke means that this fun id executed whenever we created database instance of shoppingDatabase class
+        operator fun invoke(context: Context) = instance
+            ?: synchronized(Lock){
+                instance
+                    ?: createDatabase(
+                        context
+                    )
+                        .also { instance = it } //if null create it
+            }
 
-        fun getDatabase(context: Context) : ProductDatabase{
-            val tempInstance = INSTANCE
-            if (tempInstance != null){
-                return tempInstance
-            }
-            synchronized(this){
-                val instance = Room.databaseBuilder(
-                    context.applicationContext ,
-                    ProductDatabase::class.java ,
-                    "product_database"
-                ).build()
-                INSTANCE = instance
-                return instance
-            }
-        }
+        private fun createDatabase(context: Context) =
+            Room.databaseBuilder(context.applicationContext , ProductDatabase:: class.java , "ProductDB.db").build()
     }
+
 }
