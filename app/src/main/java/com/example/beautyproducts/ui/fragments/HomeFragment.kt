@@ -80,7 +80,7 @@ class HomeFragment : Fragment() , OnItemClickListener {
 
     override fun onItemClick(position: Int, modelProduct: ModelProduct) {
         Toast.makeText(context , " hi" , Toast.LENGTH_LONG).show()
-        val action = HomeFragmentDirections.actionHomeFragmentToProductFragment()
+        val action = HomeFragmentDirections.actionHomeFragmentToProductFragment(modelProduct)
         findNavController().navigate(action)
 
     }

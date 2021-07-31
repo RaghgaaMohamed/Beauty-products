@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_productFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
+        <argument
+            android:name="model"
+            app:argType="com.example.beautyproducts.adapters.ModelProduct"/>
     </fragment>
     <fragment
         android:id="@+id/homeFragment"

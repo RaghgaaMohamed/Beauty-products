@@ -19,7 +19,7 @@ class ProductFragment : Fragment() {
     private val binding get() = _binding!!
     var modelProduct : ModelProduct ?=null
     private lateinit var  mProductViewModel : ProductViewModel
-//    private val args : ProductFragmentArgs by navArgs()
+    private val args : ProductFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class ProductFragment : Fragment() {
         mProductViewModel = ViewModelProviders.of(this , factory).get(ProductViewModel::class.java)
 
         //init product
-//        modelProduct = args.model
+        modelProduct = args.model
         binding.tvName.text = modelProduct?.name
         binding.tvSize.setText(modelProduct?.size)
         binding.tvPrice.setText(modelProduct?.price)
