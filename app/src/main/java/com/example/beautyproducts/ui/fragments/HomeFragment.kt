@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.beautyproducts.R
@@ -30,6 +32,14 @@ class HomeFragment : Fragment() , OnItemClickListener {
     ): View {
         _binding = FragmentHome1Binding.inflate(layoutInflater)
         val view = binding.root
+
+        binding.navigation.setOnNavigationItemReselectedListener {
+
+
+        }
+        binding.navigation.selectedItemId = R.id.home_navigation
+
+
         setUpViews()
 
         return view
@@ -84,4 +94,12 @@ class HomeFragment : Fragment() , OnItemClickListener {
         findNavController().navigate(action)
 
     }
+
+//    fun Fragment.safeNavigateFromNavController(directions: NavDirections) {
+//        val navController = findNavController()
+//        val destination = navController.currentDestination as FragmentNavigator.Destination
+//        if (javaClass.name == destination.className) {
+//            navController.navigate(directions)
+//        }
+//    }
 }

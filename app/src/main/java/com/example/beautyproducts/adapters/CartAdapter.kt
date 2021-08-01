@@ -31,7 +31,7 @@ class CartAdapter :RecyclerView.Adapter<CartAdapter.ViewHolder>() {
         holder.name.text = currentItem.name
         holder.price.text = currentItem.price.toString()
         holder.size.text = currentItem.size.toString()
-        holder.image.setImageResource(currentItem.picture)
+//        holder.image.setImageResource(currentItem.picture)
 
     }
 

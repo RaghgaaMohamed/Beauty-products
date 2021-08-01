@@ -10,6 +10,6 @@ interface ProductDao {
     suspend fun addProduct(product : Product)
     @Delete
     suspend fun deleteProduct(product : Product)
-    @Query("SELECT * FROM product_table ")
+    @Query("SELECT * FROM products_db ")
     fun readAllProducts() : LiveData<List<Product>>
 }

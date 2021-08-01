@@ -21,15 +21,9 @@ class ProductsAdapter(var modelList:List<ModelProduct> , private val listener: O
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val model= modelList.get(position)
-        holder.name.setText(model.name)
-        holder.price.setText(model.price)
-        holder.size.setText(model.size)
-        holder.image.setImageResource(model.images)
 
-            holder.itemView.setOnClickListener {
-                listener.onItemClick(position , model)
-            }
+        holder.initialize(modelList.get(position) , listener)
+
     }
 
     override fun getItemCount(): Int {
@@ -37,11 +31,26 @@ class ProductsAdapter(var modelList:List<ModelProduct> , private val listener: O
     }
 
 
+
+
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val name: TextView=itemView.findViewById(R.id.tv_name)
         val price:TextView=itemView.findViewById(R.id.tv_price)
         val size :TextView=itemView.findViewById(R.id.tv_size)
         val image:ImageView=itemView.findViewById(R.id.iv_product)
+
+        fun initialize(model : ModelProduct , listener: OnItemClickListener){
+            name.text = model.name
+            size.text = model.size
+            price.text = model.price
+            image.setImageResource(model.images)
+
+            itemView.setOnClickListener{
+                listener.onItemClick(bindingAdapterPosition ,model )
+
+            }
+
+        }
 
     }
 }
